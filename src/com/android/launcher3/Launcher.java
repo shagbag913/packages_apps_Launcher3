@@ -2424,4 +2424,12 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
 
         void onLauncherResume();
     }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if ("pref_iconPackPackage".equals(key)) {
+            mModel.clearIconCache();
+            mModel.forceReload();
+        }
+    }
 }
