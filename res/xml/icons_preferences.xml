@@ -18,10 +18,11 @@
         </intent>
     </com.android.launcher3.views.ButtonPreference>
 
-        <com.android.launcher3.preferences.IconPackPreference
-            android:key="pref_iconPackPackage"
-            android:title="@string/icon_pack"
-            android:summary="@string/icon_pack_summary"
+        <com.android.launcher3.iconpack.CustomIconPreference
+            android:key="pref_icon_pack"
+            android:title="@string/pref_icon_pack"
+            android:summary="%s"
+            android:defaultValue=""
             android:persistent="true" />
 
         <ListPreference
