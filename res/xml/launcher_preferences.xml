@@ -53,6 +53,12 @@
         android:persistent="true"
         />
 
+    <SwitchPreference
+        android:key="pref_show_swipeup_arrow"
+        android:title="@string/show_swipeup_arrow"
+        android:summary="@string/show_swipeup_arrow_summary"
+        android:defaultValue="true" />
+
     <ListPreference
         android:key="pref_grid_columns"
         android:title="@string/number_of_columns_title"

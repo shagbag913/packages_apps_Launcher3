@@ -126,4 +126,8 @@
     <string name="shishu_preferencecat_features">Special Features</string>
     <string name="shishu_preferencecat_misc">Miscellaneous</string>
 
+    <!-- Swipeup Arrow -->
+    <string name="show_swipeup_arrow">Enable swipe up indicator</string>
+    <string name="show_swipeup_arrow_summary">Show the swipe up arrow indicator on top of the dock</string>
+
 </resources>
