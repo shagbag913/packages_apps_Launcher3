@@ -16,6 +16,79 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+<PreferenceCategory
+    android:key="prefcat_ui"
+    android:title="@string/shishu_preferencecat_ui">
+
+    <ListPreference
+        android:key="pref_theme"
+        android:title="@string/theme_title"
+        android:summary="%s"
+        android:entries="@array/theme_names"
+        android:entryValues="@array/theme_values"
+        android:defaultValue="wallpaper"
+        android:persistent="true"
+        />
+
+    <SwitchPreference
+        android:key="pref_top_search_bar"
+        android:title="@string/top_search_bar_title"
+        android:summary="@string/top_search_bar_summary"
+        android:defaultValue="true"
+        android:persistent="true"
+        />
+
+    <SwitchPreference
+        android:key="pref_show_predictions"
+        android:title="@string/title_app_suggestions"
+        android:summary="@string/summary_app_suggestions"
+        android:defaultValue="true"
+        />
+
+    <SwitchPreference
+        android:key="pref_transparent_navigation_bar"
+        android:title="@string/transparent_navigation_bar_title"
+        android:summary="@string/transparent_navigation_bar_summary"
+        android:defaultValue="false"
+        android:persistent="true"
+        />
+
+    <ListPreference
+        android:key="pref_grid_columns"
+        android:title="@string/number_of_columns_title"
+        android:summary="%s"
+        android:entries="@array/grid_names"
+        android:entryValues="@array/grid_values"
+        android:defaultValue="default"
+        android:persistent="true"
+        />
+
+    <ListPreference
+        android:key="pref_grid_rows"
+        android:title="@string/number_of_rows_title"
+        android:summary="%s"
+        android:entries="@array/grid_names"
+        android:entryValues="@array/grid_values"
+        android:defaultValue="default"
+        android:persistent="true"
+        />
+
+    <ListPreference
+        android:key="pref_hotseat_icons"
+        android:title="@string/number_of_hotseat_title"
+        android:summary="%s"
+        android:entries="@array/grid_names"
+        android:entryValues="@array/grid_values"
+        android:defaultValue="default"
+        android:persistent="true"
+        />
+
+</PreferenceCategory>
+
+<PreferenceCategory
+    android:key="prefcat_icons"
+    android:title="@string/shishu_preferencecat_icons">
+
     <com.android.launcher3.views.ButtonPreference
         android:key="pref_icon_badging"
         android:title="@string/icon_badging_title"
@@ -29,6 +102,50 @@
         </intent>
     </com.android.launcher3.views.ButtonPreference>
 
+    <com.google.android.apps.nexuslauncher.CustomIconPreference
+        android:key="pref_icon_pack"
+        android:title="@string/pref_icon_pack"
+        android:summary="%s"
+        android:defaultValue=""
+        android:persistent="true" />
+
+    <ListPreference
+        android:key="pref_icon_size"
+        android:title="@string/icon_size_title"
+        android:summary="%s"
+        android:entries="@array/icon_size_names"
+        android:entryValues="@array/icon_size_values"
+        android:defaultValue="average"
+        android:persistent="true"
+        />
+
+    <ListPreference
+        android:key="pref_override_icon_shape"
+        android:title="@string/icon_shape_override_label"
+        android:summary="%s"
+        android:entries="@array/icon_shape_override_paths_names"
+        android:entryValues="@array/icon_shape_override_paths_values"
+        android:defaultValue=""
+        android:persistent="false" />
+
+    <Preference
+        android:key="pref_hide_apps"
+        android:summary="@string/hide_apps_summary"
+        android:title="@string/hide_apps_title">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.hdeva.launcher.HideAppsActivity"
+            android:targetPackage="com.google.android.apps.nexuslauncher" />
+
+    </Preference>
+
+</PreferenceCategory>
+
+<PreferenceCategory
+    android:key="prefcat_pixel"
+    android:title="@string/shishu_preferencecat_pixel">
+
     <PreferenceScreen
         android:key="pref_smartspace"
         android:title="@string/smartspace_preferences_in_settings"
@@ -40,14 +157,6 @@
         android:key="pref_enable_at_a_glance"
         android:title="@string/enable_at_a_glance_title"
         android:summary="@string/enable_at_a_glance_summary"
-        android:defaultValue="true"
-        android:persistent="true"
-        />
-
-    <SwitchPreference
-        android:key="pref_add_icon_to_home"
-        android:title="@string/auto_add_shortcuts_label"
-        android:summary="@string/auto_add_shortcuts_description"
         android:defaultValue="true"
         android:persistent="true"
         />
@@ -85,19 +194,18 @@
         android:dependency="pref_bottom_search_bar"
         />
 
-    <SwitchPreference
-        android:key="pref_top_search_bar"
-        android:title="@string/top_search_bar_title"
-        android:summary="@string/top_search_bar_summary"
-        android:defaultValue="true"
-        android:persistent="true"
-        />
+</PreferenceCategory>
+
+<PreferenceCategory
+    android:key="prefcat_features"
+    android:title="@string/shishu_preferencecat_features">
 
     <SwitchPreference
-        android:key="pref_show_predictions"
-        android:title="@string/title_app_suggestions"
-        android:summary="@string/summary_app_suggestions"
+        android:key="pref_add_icon_to_home"
+        android:title="@string/auto_add_shortcuts_label"
+        android:summary="@string/auto_add_shortcuts_description"
         android:defaultValue="true"
+        android:persistent="true"
         />
 
     <SwitchPreference
@@ -112,14 +220,6 @@
         android:title="@string/physical_animation_title"
         android:summary="@string/physical_animation_summary"
         android:defaultValue="true"
-        android:persistent="true"
-        />
-
-    <SwitchPreference
-        android:key="pref_transparent_navigation_bar"
-        android:title="@string/transparent_navigation_bar_title"
-        android:summary="@string/transparent_navigation_bar_summary"
-        android:defaultValue="false"
         android:persistent="true"
         />
 
@@ -139,83 +239,11 @@
         android:persistent="true"
         />
 
-    <ListPreference
-        android:key="pref_theme"
-        android:title="@string/theme_title"
-        android:summary="%s"
-        android:entries="@array/theme_names"
-        android:entryValues="@array/theme_values"
-        android:defaultValue="wallpaper"
-        android:persistent="true"
-        />
+</PreferenceCategory>
 
-    <ListPreference
-        android:key="pref_grid_columns"
-        android:title="@string/number_of_columns_title"
-        android:summary="%s"
-        android:entries="@array/grid_names"
-        android:entryValues="@array/grid_values"
-        android:defaultValue="default"
-        android:persistent="true"
-        />
-
-    <ListPreference
-        android:key="pref_grid_rows"
-        android:title="@string/number_of_rows_title"
-        android:summary="%s"
-        android:entries="@array/grid_names"
-        android:entryValues="@array/grid_values"
-        android:defaultValue="default"
-        android:persistent="true"
-        />
-
-    <ListPreference
-        android:key="pref_hotseat_icons"
-        android:title="@string/number_of_hotseat_title"
-        android:summary="%s"
-        android:entries="@array/grid_names"
-        android:entryValues="@array/grid_values"
-        android:defaultValue="default"
-        android:persistent="true"
-        />
-
-    <ListPreference
-        android:key="pref_icon_size"
-        android:title="@string/icon_size_title"
-        android:summary="%s"
-        android:entries="@array/icon_size_names"
-        android:entryValues="@array/icon_size_values"
-        android:defaultValue="average"
-        android:persistent="true"
-        />
-
-    <ListPreference
-        android:key="pref_override_icon_shape"
-        android:title="@string/icon_shape_override_label"
-        android:summary="%s"
-        android:entries="@array/icon_shape_override_paths_names"
-        android:entryValues="@array/icon_shape_override_paths_values"
-        android:defaultValue=""
-        android:persistent="false" />
-
-    <Preference
-        android:key="pref_hide_apps"
-        android:summary="@string/hide_apps_summary"
-        android:title="@string/hide_apps_title">
-
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:targetClass="com.hdeva.launcher.HideAppsActivity"
-            android:targetPackage="com.google.android.apps.nexuslauncher" />
-
-    </Preference>
-
-    <com.google.android.apps.nexuslauncher.CustomIconPreference
-        android:key="pref_icon_pack"
-        android:title="@string/pref_icon_pack"
-        android:summary="%s"
-        android:defaultValue=""
-        android:persistent="true" />
+<PreferenceCategory
+    android:key="prefcat_misc"
+    android:title="@string/shishu_preferencecat_misc">
 
     <PreferenceScreen
         android:key="about_screen"
@@ -223,7 +251,17 @@
         android:persistent="false">
 
         <Preference
-            android:key="about_lean"
+            android:key="about_shishu"
+            android:title="@string/about_shishu_title"
+            android:summary="@string/about_shishu_summary"
+            android:persistent="false" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/shishu_github_url" />
+        </Preference>
+
+        <Preference
+            android:key="about_original_lean"
             android:title="@string/about_lean_title"
             android:summary="@string/about_lean_summary"
             android:persistent="false" >
@@ -257,5 +295,7 @@
         </Preference>
 
     </PreferenceScreen>
+
+</PreferenceCategory>
 
 </PreferenceScreen>

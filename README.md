@@ -1,10 +1,10 @@
-# Lean Launcher
+# Shishu 家 Launcher
 
-by hundeva (https://github.com/hundeva/Lean-Launcher)
+This is a fork/rebrand of Lean Launcher made by hundeva (https://github.com/hundeva/Lean-Launcher)
 
 This launcher is based on the o-mr1 version of Amir Zaidi's Rootless Pixel Launcher: https://github.com/amirzaidi/Launcher3/tree/o-mr1?files=1
 
-The goal of Lean Launcher is to preserve the feeling of the Pixel Launcher, but to provide a few extra options for customization.
+The goal of Shishu 家 Launcher is to preserve the feeling of the Pixel Launcher and the options for customization from Lean, but rebranding it for our needs and make it a bit cleaner.
 
 ## Features
 
