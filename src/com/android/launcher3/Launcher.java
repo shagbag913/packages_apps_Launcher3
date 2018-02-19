@@ -33,7 +33,6 @@ import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ComponentCallbacks2;
 import android.content.ComponentName;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.DialogInterface;
@@ -127,7 +126,6 @@ import com.android.launcher3.util.MultiHashMap;
 import com.android.launcher3.util.PackageManagerHelper;
 import com.android.launcher3.util.PackageUserKey;
 import com.android.launcher3.util.PendingRequestArgs;
-import com.android.launcher3.util.CustomSettingsObserver;
 import com.android.launcher3.util.RunnableWithId;
 import com.android.launcher3.util.SystemUiController;
 import com.android.launcher3.util.TestingUtils;
@@ -350,21 +348,6 @@ public class Launcher extends BaseActivity
 
     private RotationPrefChangeHandler mRotationPrefChangeHandler;
 
-    private int mSystemTheme = 0;
-    private SystemThemeObserver mSettingsObserver;
-
-    private class SystemThemeObserver extends CustomSettingsObserver.System {
-        public SystemThemeObserver(ContentResolver resolver) {
-            super(resolver);
-        }
-
-        @Override
-        public void onSettingChanged(int keySettingInt) {
-            mSystemTheme = keySettingInt;
-            onThemeChanged();
-        }
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (DEBUG_STRICT_MODE) {
@@ -391,13 +374,7 @@ public class Launcher extends BaseActivity
 
         WallpaperColorInfo wallpaperColorInfo = WallpaperColorInfo.getInstance(this);
         wallpaperColorInfo.setOnThemeChangeListener(this);
-
-        mSettingsObserver = new SystemThemeObserver(this.getContentResolver());
-        mSettingsObserver.register("system_ui_theme");
-        mSystemTheme = mSettingsObserver.getSettingInt();
-        boolean forceDark = mSystemTheme == 2;
-        boolean forceLight = mSystemTheme == 1;
-        overrideTheme(wallpaperColorInfo.isDark(), wallpaperColorInfo.supportsDarkText(), forceDark, forceLight);
+        overrideTheme(wallpaperColorInfo.isDark(), wallpaperColorInfo.supportsDarkText());
 
         super.onCreate(savedInstanceState);
 
@@ -517,8 +494,8 @@ public class Launcher extends BaseActivity
         recreate();
     }
 
-    protected void overrideTheme(boolean isDark, boolean supportsDarkText, boolean forceDark, boolean forceLight) {
-        if (isDark || forceDark) {
+    protected void overrideTheme(boolean isDark, boolean supportsDarkText) {
+        if (isDark) {
             setTheme(R.style.LauncherThemeDark);
         } else if (supportsDarkText) {
             setTheme(R.style.LauncherThemeDarkText);
@@ -1887,7 +1864,6 @@ public class Launcher extends BaseActivity
                 .removeAccessibilityStateChangeListener(this);
 
         WallpaperColorInfo.getInstance(this).setOnThemeChangeListener(null);
-        mSettingsObserver.unregister();
 
         LauncherAnimUtils.onDestroyActivity();
 

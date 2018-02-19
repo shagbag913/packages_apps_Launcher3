@@ -24,17 +24,14 @@ public class NexusLauncherActivity extends Launcher {
         int flags = Utilities.getDevicePrefs(this).getInt("pref_persistent_flags", 0);
         int orientFlag = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ? 16 : 8;
         boolean useGoogleInOrientation = (orientFlag & flags) != 0;
-
-        if (forceDark || (useGoogleInOrientation && isDark && !forceLight)) {
+        if (useGoogleInOrientation && isDark) {
             setTheme(R.style.GoogleSearchLauncherThemeDark);
-        // else if forcelight or wallpaper based use light theme or light theme plus dark text if needed by the wallpaper
         } else if (useGoogleInOrientation && supportsDarkText && Utilities.ATLEAST_NOUGAT) {
             setTheme(R.style.GoogleSearchLauncherThemeDarkText);
         } else if (useGoogleInOrientation) {
             setTheme(R.style.GoogleSearchLauncherTheme);
-        // if !useGoogleInOrientation fallback to Launcher.overrideTheme
         } else {
-            super.overrideTheme(isDark, supportsDarkText, forceDark, forceLight);
+            super.overrideTheme(isDark, supportsDarkText);
         }
     }
 
