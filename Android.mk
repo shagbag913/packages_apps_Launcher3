@@ -43,6 +43,9 @@ LOCAL_SRC_FILES += \
     src/com/google/android/libraries/launcherclient/ILauncherOverlayCallback.aidl \
     src/com/google/android/libraries/launcherclient/ILauncherOverlay.aidl
 
+
+LOCAL_CERTIFICATE := platform
+
 LOCAL_RESOURCE_DIR := \
     $(LOCAL_PATH)/res \
     prebuilts/sdk/current/support/v7/recyclerview/res \
