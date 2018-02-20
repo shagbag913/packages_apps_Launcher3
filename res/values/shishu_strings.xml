@@ -11,7 +11,7 @@
     <string name="lock_desktop_summary">To prevent the change of icons and widgets</string>
     <string name="desktop_is_locked">Desktop is locked</string>
 
-    <string name="theme_title">Theme</string>
+    <string name="theme_title">Launcher Theme</string>
     <string name="theme_wallpaper">From wallpaper</string>
     <string name="theme_always_light">Light</string>
     <string name="theme_always_dark">Dark</string>
