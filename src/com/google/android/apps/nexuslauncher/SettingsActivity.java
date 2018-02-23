@@ -97,7 +97,7 @@ public class SettingsActivity extends com.android.launcher3.SettingsActivity imp
             findPreference(LeanSettings.QSB_KEY).setOnPreferenceChangeListener(this);
             findPreference(LeanSettings.THEME_KEY).setOnPreferenceChangeListener(this);
             findPreference(LeanSettings.BOTTOM_SEARCH_BAR_KEY).setOnPreferenceChangeListener(this);
-            findPreference(LeanSettings.TOP_SEARCH_BAR_KEY).setOnPreferenceChangeListener(this);
+            /**findPreference(LeanSettings.TOP_SEARCH_BAR_KEY).setOnPreferenceChangeListener(this);*/
             findPreference(LeanSettings.PHYSICAL_ANIMATION_KEY).setOnPreferenceChangeListener(this);
             findPreference(LeanSettings.TRANSPARENT_NAVIGATION_BAR).setOnPreferenceChangeListener(this);
             findPreference(LeanSettings.EXTRA_BOTTOM_PADDING).setOnPreferenceChangeListener(this);
