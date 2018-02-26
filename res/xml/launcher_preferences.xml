@@ -26,7 +26,7 @@
         android:summary="%s"
         android:entries="@array/theme_names"
         android:entryValues="@array/theme_values"
-        android:defaultValue="wallpaper"
+        android:defaultValue="dark"
         android:persistent="true"
         />
 
@@ -178,7 +178,7 @@
         android:key="pref_bottom_search_bar"
         android:title="@string/bottom_search_bar_title"
         android:summary="@string/bottom_search_bar_summary"
-        android:defaultValue="true"
+        android:defaultValue="false"
         android:persistent="true"
         />
 
