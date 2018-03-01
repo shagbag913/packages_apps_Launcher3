@@ -39,4 +39,10 @@
     <!-- Settings message explaining when the -1 screen is available on an RTL device. [CHAR LIMIT=100] -->
     <string name="msg_minus_one_on_right">To the left of the main home screen</string>
 
+    <!-- Show labels on icon -->
+    <string name="desktop_show_label_title">Homescreen Apps Labels</string>
+    <string name="desktop_show_label_summary">Show labels below the icons on desktop</string>
+    <string name="allapps_show_label_title">AppDrawer Apps Labels</string>
+    <string name="allapps_show_label_summary">Show labels below the icons in app drawer</string>
+
 </resources>
