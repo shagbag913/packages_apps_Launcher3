@@ -95,7 +95,7 @@ public class LeanSettings {
     private static final boolean CARET_LONG_PRESS_DEFAULT = true;
     private static final int DATE_FORMAT_DEFAULT = R.string.date_format_normal;
     private static final boolean PAGE_INDICATOR_DEFAULT = true;
-    private static final int GLANCE_FONT_DEFAULT = R.string.glance_fonts_googlesans;
+    private static final String GLANCE_FONT_DEFAULT = "normal";
 
     private static final String THEME_WALLPAPER = "wallpaper";
     private static final String THEME_LIGHT = "light";
