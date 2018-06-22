@@ -202,30 +202,31 @@ public class SmartspaceView extends FrameLayout implements ISmartspace, ValueAni
 
     private void setGlanceTextStyle(TextView... views) {
         String fontprovider = LeanSettings.getGlanceFont(getContext());
-        
+        Typeface tf;
+
         switch (fontprovider) {
             case "system":
-                Typeface tf = Typeface.create("sans-serif-medium", Typeface.NORMAL);
+                tf = Typeface.create("sans-serif-medium", Typeface.NORMAL);
                 for (TextView view : views) {
                     if (view != null) {
                         view.setTypeface(tf);
                     }
                 }
             case "normal":
-                Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/GoogleSans-Regular.ttf");
+                tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/GoogleSans-Regular.ttf");
                 for (TextView view : views) {
                     if (view != null) {
                         view.setTypeface(tf);
                     }
                 }
         
-            case default:
-                Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/GoogleSans-Regular.ttf");
-                for (TextView view : views) {
-                    if (view != null) {
-                        view.setTypeface(tf);
-                    }
-                }
+//            default:
+//                tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/GoogleSans-Regular.ttf");
+//                for (TextView view : views) {
+//                    if (view != null) {
+//                        view.setTypeface(tf);
+//                    }
+//                }
         }
     }
 

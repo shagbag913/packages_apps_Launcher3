@@ -318,7 +318,6 @@
     <string-array name="glance_fonts_names">
         <item>@string/glance_fonts_system</item>
         <item>@string/glance_fonts_googlesans</item>
-        <item>@string/date_format_short</item>
     </string-array>
 
     <string-array name="glance_fonts_values">

@@ -389,7 +389,7 @@ public class LeanSettings {
     }
 
     public static String getGlanceFont(Context context) {
-        return prefs(context).getString(GLANCE_FONT, context.getString(GLANCE_FONT_DEFAULT));
+        return prefs(context).getString(GLANCE_FONT, GLANCE_FONT_DEFAULT);
     }
 
     private static SharedPreferences prefs(Context context) {
