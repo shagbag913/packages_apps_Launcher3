@@ -43,6 +43,15 @@
             android:title="@string/smartspace_preferences_in_settings" />
 
         <ListPreference
+            android:defaultValue="@string/glance_fonts_googlesans"
+            android:entries="@array/glance_fonts_names"
+            android:entryValues="@array/glance_fonts_values"
+            android:key="pref_date_font"
+            android:persistent="true"
+            android:summary="%s"
+            android:title="@string/glance_fonts_title" />
+
+        <ListPreference
             android:defaultValue="@string/date_format_normal"
             android:entries="@array/date_format_names"
             android:entryValues="@array/date_format_values"

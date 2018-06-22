@@ -36,6 +36,7 @@ import com.android.launcher3.util.Themes;
 import com.google.android.apps.nexuslauncher.DynamicIconProvider;
 import com.google.android.apps.nexuslauncher.graphics.IcuDateTextView;
 
+import com.hdeva.launcher.LeanSettings;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -196,15 +197,35 @@ public class SmartspaceView extends FrameLayout implements ISmartspace, ValueAni
         backportClockVisibility(true);
         mTitleSeparator = findViewById(R.id.title_sep);
 
-        setGoogleSans(mTitleText, mSubtitleText, mTitleWeatherText, mSubtitleWeatherText, mClockView);
+        setGlanceTextStyle(mTitleText, mSubtitleText, mTitleWeatherText, mSubtitleWeatherText, mClockView);
     }
 
-    private void setGoogleSans(TextView... views) {
-        Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/GoogleSans-Regular.ttf");
-        for (TextView view : views) {
-            if (view != null) {
-                view.setTypeface(tf);
-            }
+    private void setGlanceTextStyle(TextView... views) {
+        String fontprovider = LeanSettings.getGlanceFont(getContext());
+        
+        switch (fontprovider) {
+            case "system":
+                Typeface tf = Typeface.create("sans-serif-medium", Typeface.NORMAL);
+                for (TextView view : views) {
+                    if (view != null) {
+                        view.setTypeface(tf);
+                    }
+                }
+            case "normal":
+                Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/GoogleSans-Regular.ttf");
+                for (TextView view : views) {
+                    if (view != null) {
+                        view.setTypeface(tf);
+                    }
+                }
+        
+            case default:
+                Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/GoogleSans-Regular.ttf");
+                for (TextView view : views) {
+                    if (view != null) {
+                        view.setTypeface(tf);
+                    }
+                }
         }
     }
 

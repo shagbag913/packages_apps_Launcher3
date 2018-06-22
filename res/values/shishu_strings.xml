@@ -310,4 +310,19 @@
     <string name="reset_app_icons_summary">To system default</string>
     <string name="reset_app_icons_description">This will reset all app icons to their system default.</string>
 
+    <!-- Custom fonts because we can -->
+    <string name="glance_fonts_title">Font Style</string>
+    <string name="glance_fonts_system">System default</string>
+    <string name="glance_fonts_googlesans" translatable="fals">Google Sans</string>
+
+    <string-array name="glance_fonts_names">
+        <item>@string/glance_fonts_system</item>
+        <item>@string/glance_fonts_googlesans</item>
+        <item>@string/date_format_short</item>
+    </string-array>
+
+    <string-array name="glance_fonts_values">
+        <item>system</item>
+        <item>normal</item>
+    </string-array>
 </resources>
