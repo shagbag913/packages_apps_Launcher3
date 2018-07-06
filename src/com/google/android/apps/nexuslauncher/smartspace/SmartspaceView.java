@@ -35,6 +35,7 @@ import com.android.launcher3.popup.SystemShortcut;
 import com.android.launcher3.util.Themes;
 import com.google.android.apps.nexuslauncher.DynamicIconProvider;
 import com.google.android.apps.nexuslauncher.graphics.IcuDateTextView;
+import com.hdeva.launcher.LeanSettings;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -200,10 +201,27 @@ public class SmartspaceView extends FrameLayout implements ISmartspace, ValueAni
     }
 
     private void setGoogleSans(TextView... views) {
-        Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/GoogleSans-Regular.ttf");
+        //Typeface tf = Typeface.create("sans-serif-medium", Typeface.NORMAL);
+        Typeface tf;
+        switch (LeanSettings.getDateStyleFont(getContext())) {
+            case "system":
+                tf = Typeface.create("sans-serif-medium", Typeface.NORMAL);
+                break;
+
+            case "google":
+                tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/GoogleSans-Regular.ttf");
+                break;
+
+            default:
+                tf = Typeface.create("sans-serif-medium", Typeface.NORMAL);
+                break;
+        }
+        
         for (TextView view : views) {
             if (view != null) {
                 view.setTypeface(tf);
+                view.setAllCaps(LeanSettings.isDateStyleUppercase(getContext()));
+                view.setLetterSpacing(LeanSettings.getDateStyleTextSpacing(getContext()));
             }
         }
     }

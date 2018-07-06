@@ -310,4 +310,66 @@
     <string name="reset_app_icons_summary">To system default</string>
     <string name="reset_app_icons_description">This will reset all app icons to their system default.</string>
 
+    <string name="reset_app_visibility_title">Reset app visibility</string>
+    <string name="reset_app_visibility_summary">When changing to default icon pack</string>
+
+    <string name="date_format_title">Date format</string>
+
+    <string name="date_format_long" translatable="false">EEEE, MMMM d</string>
+    <string name="date_format_normal" translatable="false">EEEE, MMM d</string>
+    <string name="date_format_short" translatable="false">EEE, MMM d</string>
+
+    <string-array name="date_format_names" translatable="false">
+        <item>@string/date_format_long</item>
+        <item>@string/date_format_normal</item>
+        <item>@string/date_format_short</item>
+    </string-array>
+
+    <string-array name="date_format_values" translatable="false">
+        <item>@string/date_format_long</item>
+        <item>@string/date_format_normal</item>
+        <item>@string/date_format_short</item>
+    </string-array>
+
+    <string name="show_page_indicator_title">Show page indicator</string>
+    <string name="show_page_indicator_summary">Using horizontal lines</string>
+
+    <!-- date style test -->
+    <string name="date_style_font">Date font</string>
+    <string name="date_style_font_system">System default</string>
+    <string name="date_style_font_google" translatable="false">Google Sans</string>
+
+    <string-array name="date_style_font_names" translatable="false">
+        <item>@string/date_style_font_system</item>
+        <item>@string/date_style_font_google</item>
+    </string-array>
+
+    <string-array name="date_style_font_values" translatable="false">
+        <item>system</item>
+        <item>google</item>
+    </string-array>
+
+    <string name="date_style_transform_title">Show uppercase on date</string>
+    <string name="date_style_transform_summary">Transform all the date/at a glance with uppercased text</string>
+
+    <string name="date_style_spacing">Date spacing</string>
+    <string name="date_style_spacing_normal">Normal</string>
+    <string name="date_style_spacing_barely">Barely noticeable</string>
+    <string name="date_style_spacing_aesthetic" translatable="false">A e s t h e t i c</string>
+    <string name="date_style_spacing_ott">Over the top</string>
+
+    <string-array name="date_style_spacing_names" translatable="false">
+        <item>@string/date_style_spacing_normal</item>
+        <item>@string/date_style_spacing_barely</item>
+        <item>@string/date_style_spacing_aesthetic</item>
+        <item>@string/date_style_spacing_ott</item>
+    </string-array>
+
+    <string-array name="date_style_spacing_values" translatable="false">
+        <item>normal</item>
+        <item>barely</item>
+        <item>aesthetic</item>
+        <item>overthetop</item>
+    </string-array>
+
 </resources>

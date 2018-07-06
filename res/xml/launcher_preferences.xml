@@ -43,13 +43,43 @@
             android:title="@string/smartspace_preferences_in_settings" />
 
         <ListPreference
-            android:defaultValue="@string/date_format_normal"
+            android:defaultValue="@string/date_style_font_system"
             android:entries="@array/date_format_names"
             android:entryValues="@array/date_format_values"
             android:key="pref_date_format"
             android:persistent="true"
             android:summary="%s"
             android:title="@string/date_format_title" />
+
+        <ListPreference
+            android:defaultValue="@string/date_style_font_system"
+            android:entries="@array/date_style_font_names"
+            android:entryValues="@array/date_style_font_values"
+            android:key="pref_date_font"
+            android:persistent="true"
+            android:summary="%s"
+            android:title="@string/date_style_font" />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="pref_date_transform"
+            android:summary="@string/date_style_transform_summary"
+            android:title="@string/date_style_transform_title" />
+
+        <ListPreference
+            android:defaultValue="@string/date_style_spacing_normal"
+            android:entries="@array/date_style_spacing_names"
+            android:entryValues="@array/date_style_spacing_values"
+            android:key="pref_date_spacing"
+            android:persistent="true"
+            android:summary="%s"
+            android:title="@string/date_style_spacing" />
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="pref_enable_minus_one"
+            android:summary="@string/pref_show_google_now_summary"
+            android:title="@string/title_show_google_app" />
 
         <Preference
             android:key="pref_smartspace_settings"
