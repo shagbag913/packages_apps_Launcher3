@@ -46,6 +46,7 @@ public class LeanUtils {
     private static final LeanDoubleTapToLockRegistry REGISTRY = new LeanDoubleTapToLockRegistry();
     private static final String GOOGLE_QSB = "com.google.android.googlequicksearchbox";
     private static final int WHITE = 0xffffffff;
+    private static final String TAG = "LeanUtils";
 
     public static void reload(Context context) {
         LauncherAppState.getInstance(context).getModel().forceReload();
@@ -298,7 +299,7 @@ public class LeanUtils {
             }
             return formattedDate;
         } catch (Throwable t) {
-            LeanUtils.reportNonFatal(new Exception("Error formatting At A Glance date", t));
+            Log.e(TAG, "Error formatting At A Glance date", t);
             return DateUtils.formatDateTime(context, timeInMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_MONTH);
         }
     }
