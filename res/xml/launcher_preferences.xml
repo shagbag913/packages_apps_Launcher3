@@ -57,7 +57,7 @@
             android:title="@string/date_format_title" />
 
         <ListPreference
-            android:defaultValue="@string/date_style_font_system"
+            android:defaultValue="google"
             android:entries="@array/date_style_font_names"
             android:entryValues="@array/date_style_font_values"
             android:key="pref_date_font"
@@ -72,7 +72,7 @@
             android:title="@string/date_style_transform_title" />
 
         <ListPreference
-            android:defaultValue="@string/date_style_spacing_normal"
+            android:defaultValue="normal"
             android:entries="@array/date_style_spacing_names"
             android:entryValues="@array/date_style_spacing_values"
             android:key="pref_date_spacing"
