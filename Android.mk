@@ -27,6 +27,7 @@ LOCAL_SRC_FILES := quickstep/libs/sysui_shared.jar
 LOCAL_UNINSTALLABLE_MODULE := true
 LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_CERTIFICATE := platform
+
 include $(BUILD_PREBUILT)
 
 #
@@ -210,7 +211,6 @@ LOCAL_FULL_LIBS_MANIFEST_FILES := \
 LOCAL_MANIFEST_FILE := quickstep/AndroidManifest.xml
 LOCAL_JACK_COVERAGE_INCLUDE_FILTER := com.android.launcher3.*
 include $(BUILD_PACKAGE)
-
 
 # ==================================================
 include $(call all-makefiles-under,$(LOCAL_PATH))
