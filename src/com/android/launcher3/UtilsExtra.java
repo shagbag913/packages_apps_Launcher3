@@ -22,12 +22,6 @@ import android.content.pm.PackageManager;
 
 public class UtilsExtra {
 
-    public static boolean hasPackageInstalled(Context context, String pkgName) {
-        try {
-            ApplicationInfo ai = context.getPackageManager().getApplicationInfo(pkgName, 0);
-            return ai.enabled;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
-    }
+    // Do nothing for now
+
 }

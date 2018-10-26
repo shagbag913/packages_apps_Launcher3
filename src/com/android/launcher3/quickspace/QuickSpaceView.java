@@ -41,6 +41,7 @@ import com.android.launcher3.LauncherLettuce.LauncherLettuceCallbacks;
 import com.android.launcher3.quickspace.receivers.QuickSpaceActionReceiver;
 import com.android.launcher3.views.DateTextView;
 
+import com.android.internal.util.bootleggers.BootlegUtils;
 import com.android.internal.util.custom.weather.WeatherClient;
 import com.android.launcher3.BubbleTextView;
 import com.android.launcher3.ItemInfo;
@@ -92,8 +93,8 @@ public class QuickSpaceView extends FrameLayout implements ValueAnimator.Animato
 
     private void loadSingleLine() {
         setBackgroundResource(0);
-        boolean hasGoogleApp = UtilsExtra.hasPackageInstalled(Launcher.getLauncher(mContext), LauncherLettuceCallbacks.SEARCH_PACKAGE);
-        boolean hasGoogleCalendar = UtilsExtra.hasPackageInstalled(Launcher.getLauncher(mContext), "com.google.android.calendar");
+        boolean hasGoogleApp = BootlegUtils.isPackageInstalled(Launcher.getLauncher(mContext), LauncherLettuceCallbacks.SEARCH_PACKAGE);
+        boolean hasGoogleCalendar = BootlegUtils.isPackageInstalled(Launcher.getLauncher(mContext), "com.google.android.calendar");
         mClockView.setOnClickListener(hasGoogleCalendar ? mActionReceiver.getCalendarAction() : null);
         if (!WeatherClient.isAvailable(getContext())) {
             mWeatherContent.setVisibility(View.GONE);
