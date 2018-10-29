@@ -17,7 +17,7 @@
 package com.android.launcher3;
 
 import android.app.Activity;
-
+import android.content.Context;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.view.View;
@@ -43,9 +43,13 @@ public class SettingsActivity extends Activity {
 
     public static class LauncherSettingsFragment extends PreferenceFragment {
 
+        private Context mContext;
+
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+
+            mContext = getActivity();
 
             getPreferenceManager().setSharedPreferencesName(LauncherFiles.SHARED_PREFERENCES_KEY);
             addPreferencesFromResource(R.xml.launcher_preferences);
@@ -53,7 +57,7 @@ public class SettingsActivity extends Activity {
             HomeKeyWatcher mHomeKeyListener = new HomeKeyWatcher(getActivity());
             mHomeKeyListener.setOnHomePressedListener(() -> {
                 if (restartNeeded) {
-                    Utilities.restart(getActivity());
+                    Utilities.restart(mContext);
                 }
             });
             mHomeKeyListener.startWatch();
@@ -81,7 +85,7 @@ public class SettingsActivity extends Activity {
         public void onDestroy() {
             super.onDestroy();
             if (restartNeeded) {
-                Utilities.restart(getActivity());
+                Utilities.restart(mContext);
             }
         }
     }
