@@ -556,7 +556,7 @@ public class Workspace extends PagedView<WorkspacePageIndicator>
      * @param quickSpace an existing quickSpace to recycle or null.
      */
     public void bindAndInitFirstWorkspaceScreen(View quickSpace) {
-        if (!FeatureFlags.USE_QUICKSPACE_VIEW) {
+        if (!Utilities.showQuickspace(getContext())) {
             return;
         }
         // Add the first page
@@ -859,7 +859,7 @@ public class Workspace extends PagedView<WorkspacePageIndicator>
             long id = mWorkspaceScreens.keyAt(i);
             CellLayout cl = mWorkspaceScreens.valueAt(i);
             // FIRST_SCREEN_ID can never be removed.
-            if ((!FeatureFlags.USE_QUICKSPACE_VIEW || id > FIRST_SCREEN_ID)
+            if ((!Utilities.showQuickspace(getContext()) || id > FIRST_SCREEN_ID)
                     && cl.getShortcutsAndWidgets().getChildCount() == 0) {
                 removeScreens.add(id);
             }

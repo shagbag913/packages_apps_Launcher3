@@ -38,6 +38,7 @@ import com.android.launcher3.LauncherLettuce.LauncherLettuceCallbacks;
 public class SettingsHomescreen extends SettingsActivity implements PreferenceFragment.OnPreferenceStartFragmentCallback {
 
     public static final String KEY_MINUS_ONE = "pref_enable_minus_one";
+    public static final String KEY_SHOW_QUICKSPACE = "pref_show_quickspace";
 
     @Override
     protected void onCreate(final Bundle bundle) {
@@ -128,6 +129,14 @@ public class SettingsHomescreen extends SettingsActivity implements PreferenceFr
 
             SwitchPreference desktopShowLabel = (SwitchPreference) findPreference(Utilities.DESKTOP_SHOW_LABEL);
             desktopShowLabel.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    LauncherAppState.getInstanceNoCreate().setNeedsRestart();
+                    return true;
+                }
+            });
+
+            SwitchPreference showQuickspace = (SwitchPreference) findPreference(KEY_SHOW_QUICKSPACE);
+            showQuickspace.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
                     LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                     return true;

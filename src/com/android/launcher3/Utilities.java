@@ -69,6 +69,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.android.internal.util.bootleggers.BootlegUtils;
+
 /**
  * Various utilities shared amongst the Launcher's classes.
  */
@@ -699,6 +701,11 @@ public final class Utilities {
     static boolean hasFeedIntegration(Context context) {
         SharedPreferences prefs = getPrefs(context.getApplicationContext());
         return prefs.getBoolean(SettingsHomescreen.KEY_MINUS_ONE, true);
+    }
+
+    public static boolean showQuickspace(Context context) {
+        SharedPreferences prefs = getPrefs(context.getApplicationContext());
+        return prefs.getBoolean(SettingsHomescreen.KEY_SHOW_QUICKSPACE, true);
     }
 
     public static void restart(final Context context) {

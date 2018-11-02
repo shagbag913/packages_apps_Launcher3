@@ -223,7 +223,7 @@ public class QsbContainerView extends FrameLayout {
         }
 
         public boolean isQsbEnabled() {
-            return false; //FeatureFlags.QSB_ON_FIRST_SCREEN replaced by QuickSpace
+            return Utilities.showQuickspace(getContext());
         }
 
         protected Bundle createBindOptions() {

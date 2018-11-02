@@ -39,8 +39,8 @@ abstract class BaseFlags {
     // When enabled allows use of spring motions on the icons.
     public static final boolean LAUNCHER3_SPRING_ICONS = false;
 
-    // Feature flag to enable the Quickspace view.
-    public static final boolean USE_QUICKSPACE_VIEW = true;
+    // Feature flag to enable the Quickspace view. Actually commented due to having a SwitchPreference.
+    // public static final boolean USE_QUICKSPACE_VIEW = true;
 
     // When enabled the all-apps icon is not added to the hotseat.
     public static final boolean NO_ALL_APPS_ICON = true;

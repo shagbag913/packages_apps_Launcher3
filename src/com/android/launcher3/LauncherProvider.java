@@ -789,7 +789,7 @@ public class LauncherProvider extends ContentProvider {
                     convertShortcutsToLauncherActivities(db);
                 case 26:
                     // QuickSpace was moved to the grid. Clear the first row on screen 0.
-                    if (FeatureFlags.USE_QUICKSPACE_VIEW &&
+                    if (Utilities.showQuickspace(mContext) &&
                             !LauncherDbUtils.prepareScreenForQuickSpace(mContext, db)) {
                         break;
                     }
