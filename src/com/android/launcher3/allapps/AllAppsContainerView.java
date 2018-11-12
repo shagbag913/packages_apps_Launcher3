@@ -68,7 +68,7 @@ public class AllAppsContainerView extends SpringRelativeLayout implements DragSo
     private static final float FLING_ANIMATION_THRESHOLD = 0.55f;
 
     private final Launcher mLauncher;
-    private final AdapterHolder[] mAH;
+    public final AdapterHolder[] mAH;
     private final ItemInfoMatcher mPersonalMatcher = ItemInfoMatcher.ofUser(Process.myUserHandle());
     private final ItemInfoMatcher mWorkMatcher = ItemInfoMatcher.not(mPersonalMatcher);
     private final AllAppsStore mAllAppsStore = new AllAppsStore();
@@ -510,7 +510,7 @@ public class AllAppsContainerView extends SpringRelativeLayout implements DragSo
         final LinearLayoutManager layoutManager;
         final AlphabeticalAppsList appsList;
         final Rect padding = new Rect();
-        AllAppsRecyclerView recyclerView;
+        public AllAppsRecyclerView recyclerView;
         boolean verticalFadingEdge;
 
         AdapterHolder(boolean isWork) {
@@ -548,5 +548,9 @@ public class AllAppsContainerView extends SpringRelativeLayout implements DragSo
             mAH[AdapterHolder.MAIN].recyclerView.setVerticalFadingEdgeEnabled(!mUsingTabs
                     && verticalFadingEdge);
         }
+    }
+
+    public boolean isUsingTabs() {
+        return mUsingTabs;
     }
 }

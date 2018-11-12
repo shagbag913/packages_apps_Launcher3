@@ -43,7 +43,8 @@ import com.android.launcher3.views.ScrimView;
  * If release velocity < THRES1, snap according to either top or bottom depending on whether it's
  * closer to top or closer to the page indicator.
  */
-public class AllAppsTransitionController implements StateHandler, OnDeviceProfileChangeListener {
+public class AllAppsTransitionController implements StateHandler, OnDeviceProfileChangeListener,
+            SearchUiManager.OnScrollRangeChangeListener {
 
     public static final Property<AllAppsTransitionController, Float> ALL_APPS_PROGRESS =
             new Property<AllAppsTransitionController, Float>(Float.class, "allAppsProgress") {
@@ -226,7 +227,14 @@ public class AllAppsTransitionController implements StateHandler, OnDeviceProfil
 
     public void setupViews(AllAppsContainerView appsView) {
         mAppsView = appsView;
+        mAppsView.getSearchUiManager().addOnScrollRangeChangeListener(this);
         mScrimView = mLauncher.findViewById(R.id.scrim_view);
+    }
+
+    @Override
+    public void onScrollRangeChanged(int scrollRange) {
+        mShiftRange = scrollRange;
+        setProgress(mProgress);
     }
 
     /**

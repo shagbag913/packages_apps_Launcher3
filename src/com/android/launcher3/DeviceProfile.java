@@ -32,7 +32,13 @@ import com.android.launcher3.CellLayout.ContainerType;
 import com.android.launcher3.badge.BadgeRenderer;
 import com.android.launcher3.graphics.IconNormalizer;
 
+import java.util.ArrayList;
+
 public class DeviceProfile {
+
+    public interface LauncherLayoutChangeListener {
+        void onLauncherLayoutChanged();
+    }
 
     public final InvariantDeviceProfile inv;
 
@@ -112,6 +118,7 @@ public class DeviceProfile {
     public int allAppsIconSizePx;
     public int allAppsIconDrawablePaddingPx;
     public float allAppsIconTextSizePx;
+    public int allAppsNumCols;
 
     // Widgets
     public final PointF appWidgetScale = new PointF(1.0f, 1.0f);
@@ -125,6 +132,9 @@ public class DeviceProfile {
     private final Rect mHotseatPadding = new Rect();
     private boolean mIsSeascape;
 
+    // Listeners
+    private ArrayList<LauncherLayoutChangeListener> mListeners = new ArrayList<>();
+
     // Icon badges
     public BadgeRenderer mBadgeRenderer;
 
@@ -135,6 +145,8 @@ public class DeviceProfile {
         this.inv = inv;
         this.isLandscape = isLandscape;
         this.isMultiWindowMode = isMultiWindowMode;
+
+        allAppsNumCols = inv.numColumns;
 
         // Determine sizes.
         widthPx = width;
@@ -271,6 +283,18 @@ public class DeviceProfile {
      */
     public DeviceProfile getFullScreenProfile() {
         return isLandscape ? inv.landscapeProfile : inv.portraitProfile;
+    }
+
+    public void addLauncherLayoutChangedListener(LauncherLayoutChangeListener listener) {
+        if (!mListeners.contains(listener)) {
+            mListeners.add(listener);
+        }
+    }
+
+    public void removeLauncherLayoutChangedListener(LauncherLayoutChangeListener listener) {
+        if (mListeners.contains(listener)) {
+            mListeners.remove(listener);
+        }
     }
 
     /**
@@ -538,6 +562,12 @@ public class DeviceProfile {
      */
     public boolean isVerticalBarLayout() {
         return isLandscape && transposeLayoutWithOrientation;
+    }
+
+    public void layout(Launcher launcher) {
+        for (int i = mListeners.size() - 1; i >= 0; i--) {
+             mListeners.get(i).onLauncherLayoutChanged();
+        }
     }
 
     /**

@@ -88,6 +88,11 @@ public abstract class BaseItemDragListener extends InternalStateHandler implemen
         return false;
     }
 
+    public void setLauncher(Launcher launcher) {
+        mLauncher = launcher;
+        mDragController = launcher.getDragController();
+    }
+
     @Override
     public boolean onDrag(View view, DragEvent event) {
         if (mLauncher == null || mDragController == null) {

@@ -56,6 +56,8 @@ public class AppsSearchContainerLayout extends ExtendedEditText
 
 
     private final Launcher mLauncher;
+    private final int mMinHeight;
+    private final int mSearchBoxHeight;
     private final AllAppsSearchBarController mSearchBarController;
     private final SpannableStringBuilder mSearchQueryBuilder;
 
@@ -78,6 +80,9 @@ public class AppsSearchContainerLayout extends ExtendedEditText
         super(context, attrs, defStyleAttr);
 
         mLauncher = Launcher.getLauncher(context);
+        mMinHeight = getResources().getDimensionPixelSize(R.dimen.all_apps_search_bar_height);
+        mSearchBoxHeight = getResources()
+                .getDimensionPixelSize(R.dimen.all_apps_search_bar_field_height);
         mSearchBarController = new AllAppsSearchBarController();
 
         mSearchQueryBuilder = new SpannableStringBuilder();
@@ -198,6 +203,26 @@ public class AppsSearchContainerLayout extends ExtendedEditText
 
     private void notifyResultChanged() {
         mAppsView.onSearchResultsChanged();
+    }
+
+    @Override
+    public void addOnScrollRangeChangeListener(final OnScrollRangeChangeListener listener) {
+        mLauncher.getHotseat().addOnLayoutChangeListener(new OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom,
+                    int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                DeviceProfile dp = mLauncher.getDeviceProfile();
+                if (!dp.isVerticalBarLayout()) {
+                    Rect insets = mLauncher.getDragLayer().getInsets();
+                    int hotseatBottom = bottom - dp.hotseatBarBottomPaddingPx - insets.bottom;
+                    int searchTopMargin = insets.top + (mMinHeight - mSearchBoxHeight)
+                            + ((MarginLayoutParams) getLayoutParams()).bottomMargin;
+                    listener.onScrollRangeChanged(hotseatBottom - searchTopMargin);
+                } else {
+                    listener.onScrollRangeChanged(bottom);
+                }
+            }
+        });
     }
 
     @Override

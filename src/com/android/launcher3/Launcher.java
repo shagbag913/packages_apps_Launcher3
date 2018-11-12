@@ -134,6 +134,8 @@ import com.android.launcher3.widget.WidgetListRowEntry;
 import com.android.launcher3.widget.WidgetsFullSheet;
 import com.android.launcher3.widget.custom.CustomWidgetParser;
 
+import com.google.android.libraries.launcherclient.LauncherClient;
+
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -205,7 +207,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
 
     private final int[] mTmpAddItemCellCoordinates = new int[2];
 
-    @Thunk Hotseat mHotseat;
+    public Hotseat mHotseat;
     @Nullable private View mHotseatSearchBox;
 
     private DropTargetBar mDropTargetBar;
@@ -410,6 +412,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         }
         onDeviceProfileInitiated();
         mModelWriter = mModel.getWriter(mDeviceProfile.isVerticalBarLayout(), true);
+        mDeviceProfile.layout(this);
     }
 
     public RotationHelper getRotationHelper() {
@@ -2499,5 +2502,9 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         if (KEY_HOMESCREEN_DT_GESTURES.equals(key)) {
             mWorkspace.setGestures(Integer.valueOf(sharedPreferences.getString("KEY_HOMESCREEN_DT_GESTURES", "0")));
         }
+    }
+
+    public LauncherClient getClient() {
+        return mLauncherTab.getClient();
     }
 }

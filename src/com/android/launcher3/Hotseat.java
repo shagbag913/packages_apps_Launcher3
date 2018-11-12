@@ -41,7 +41,7 @@ import com.android.launcher3.userevent.nano.LauncherLogProto.Target;
 public class Hotseat extends FrameLayout implements LogContainerProvider, Insettable {
 
     private final Launcher mLauncher;
-    private CellLayout mContent;
+    public CellLayout mContent;
 
     @ViewDebug.ExportedProperty(category = "launcher")
     private boolean mHasVerticalHotseat;
