@@ -2430,7 +2430,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if ("pref_iconPackPackage".equals(key)) {
+        if ("pref_iconPackPackage".equals(key) || SettingsIcons.KEY_PREF_LEGACY_ICON_MASK.equals(key)) {
             mModel.clearIconCache();
             mModel.forceReload();
         }
