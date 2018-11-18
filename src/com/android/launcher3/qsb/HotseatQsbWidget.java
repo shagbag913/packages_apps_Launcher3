@@ -76,7 +76,7 @@ public class HotseatQsbWidget extends AbstractQsbLayout {
         return launcher.getDeviceProfile().mInsets.bottom + launcher.getResources().getDimensionPixelSize(R.dimen.qsb_hotseat_bottom_margin);
     }
 
-    private void setColors() {
+    public void setColors() {
         View.inflate(new ContextThemeWrapper(getContext(), R.style.HotseatQsbTheme_Colored), R.layout.qsb_hotseat_content, this);
         bz(Themes.getAttrColor(mLauncher, R.attr.allAppsScrimColor));
     }

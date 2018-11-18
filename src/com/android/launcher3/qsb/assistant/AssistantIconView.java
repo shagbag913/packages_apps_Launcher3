@@ -19,6 +19,8 @@ import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -27,6 +29,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.android.launcher3.LauncherTab;
 import com.android.launcher3.R;
 
 import com.android.systemui.shared.system.ActivityManagerWrapper;
@@ -34,6 +37,7 @@ import com.android.systemui.shared.system.ActivityManagerWrapper;
 public class AssistantIconView extends View {
 
     private Drawable mIcon;
+    private boolean mHasGoogle;
 
     public AssistantIconView(Context context) {
         this(context, null);
@@ -45,8 +49,6 @@ public class AssistantIconView extends View {
 
     public AssistantIconView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        mIcon = context.getResources().getDrawable(R.drawable.ic_poodle_color);
-        setOnClickListener(new AssistantIconViewClickListener(this));
         loadViews();
     }
 
@@ -55,7 +57,11 @@ public class AssistantIconView extends View {
         loadViews();
     }
 
-    private void loadViews() {
+    public void loadViews() {
+        mHasGoogle = hasPackage(LauncherTab.SEARCH_PACKAGE);
+        setOnClickListener(mHasGoogle ? new AssistantIconViewClickListener(this) : null);
+        mIcon = mHasGoogle ? getContext().getResources().getDrawable(R.drawable.ic_poodle_color) : 
+                getContext().getResources().getDrawable(R.drawable.ic_poodle);
         if (mIcon != null) {
             int intrinsicWidth = mIcon.getIntrinsicWidth() / 2;
             int intrinsicHeight = mIcon.getIntrinsicHeight() / 2;
@@ -76,6 +82,7 @@ public class AssistantIconView extends View {
     }
 
     public void startAssistant(View view) {
+        if (!mHasGoogle) return;
         AssistantSearch assistantSearch = new AssistantSearch(getContext());
         boolean z;
         ContentResolver contentResolver = assistantSearch.mContext.getContentResolver();
@@ -107,5 +114,15 @@ public class AssistantIconView extends View {
             return;
         }
         assistantSearch.launchSearch("android.intent.action.VOICE_ASSIST");
+    }
+
+    private boolean hasPackage(String pkgName) {
+        try {
+            ApplicationInfo ai = getContext().getPackageManager()
+                    .getApplicationInfo(pkgName, 0);
+            return ai.enabled;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
 }
