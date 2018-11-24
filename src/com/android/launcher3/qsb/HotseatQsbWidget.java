@@ -42,6 +42,7 @@ import com.android.launcher3.Launcher;
 import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.dragndrop.DragLayer;
+import com.android.launcher3.util.Themes;
 
 public class HotseatQsbWidget extends AbstractQsbLayout {
     private boolean mIsDefaultLiveWallpaper;
@@ -77,7 +78,7 @@ public class HotseatQsbWidget extends AbstractQsbLayout {
 
     private void setColors() {
         View.inflate(new ContextThemeWrapper(getContext(), R.style.HotseatQsbTheme_Colored), R.layout.qsb_hotseat_content, this);
-        bz(0xCCFFFFFF);
+        bz(Themes.getAttrColor(mLauncher, R.attr.allAppsScrimColor));
     }
 
     private void openQSB() {
