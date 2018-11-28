@@ -2491,7 +2491,9 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
                 if (mFeedIntegrationEnabled && mLauncherTab != null) {
                     mLauncherTab.getClient().onAttachedToWindow();
                 } else {
-                    mLauncherTab.getClient().onDestroy();
+                    if (!Utilities.isBottomSearchBarVisible(this)) {
+                        mLauncherTab.getClient().onDestroy();
+                    }
                 }
             }
         }
