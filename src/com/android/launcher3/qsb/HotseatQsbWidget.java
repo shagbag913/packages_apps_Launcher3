@@ -148,7 +148,8 @@ public class HotseatQsbWidget extends AbstractQsbLayout {
     @Override
     protected void noGoogleAppSearch() {
         try {
-            getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com")));
+            String provider = Utilities.getSearchProvider(getContext());
+            getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(provider)));
             playQsbAnimation();
         } catch (ActivityNotFoundException ignored) {
         }
