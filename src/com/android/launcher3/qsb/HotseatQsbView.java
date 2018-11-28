@@ -164,7 +164,8 @@ public class HotseatQsbView extends BaseQsbView {
         final Context context = getContext();
         if (context.getPackageManager().queryIntentActivities(searchIntent, 0).isEmpty()) {
             try {
-                context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://google.com")));
+                String provider = Utilities.getSearchProvider(context);
+                context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(provider)));
                 mLauncher.getQsbController().openQsb();
             } catch (ActivityNotFoundException e) {
                 try {
