@@ -35,6 +35,7 @@
     <string name="home_grid_title">Grid layout</string>
     <string name="icon_layout_title">Icon layout</string>
     <string name="home_overall_title">Home layout</string>
+    <string name="home_quickspace_title">At A Glance</string>
     <string name="home_hotseat_title">Dock</string>
     <string name="app_overall_title">App list</string>
     <string name="misc_recents_title">Recents</string>
@@ -106,7 +107,7 @@
     <string name="reset_hidden_apps_done">Hidden apps are now available</string>
 
     <!-- Show quickspace -->
-    <string name="show_quickspace_title">At A Glance</string>
+    <string name="show_quickspace_title">Show At A Glance</string>
     <string name="show_quickspace_summary">Show at the top of your Home screen</string>
 
     <!-- QuickSpace: QuickEvent: Device Intro Event -->
@@ -140,5 +141,13 @@
     <string name="search_provider_google" translatable="false">Google</string>
     <string name="search_provider_bing" translatable="false">Bing</string>
     <string name="search_provider_duckduckgo" translatable="false">DuckDuckGo</string>
+
+    <string name="date_format_title">Date format</string>
+    <string name="date_format_long_name">Long</string>
+    <string name="date_format_normal_name">Normal</string>
+    <string name="date_format_short_name">Short</string>
+    <string name="date_format_long" translatable="false">EEEE, MMMM d</string>
+    <string name="date_format_normal" translatable="false">EEEE, MMM d</string>
+    <string name="date_format_short" translatable="false">EEE, MMM d</string>
 
 </resources>
