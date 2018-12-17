@@ -42,12 +42,14 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.ListView;
 
+import com.android.launcher3.LauncherLettuce.LauncherLettuceCallbacks;
 import com.android.launcher3.graphics.IconShapeOverride;
 import com.android.launcher3.notification.NotificationListener;
 import com.android.launcher3.util.ListViewHighlighter;
@@ -76,6 +78,9 @@ public class SettingsActivity extends Activity {
     private static final int DELAY_HIGHLIGHT_DURATION_MILLIS = 600;
     private static final String SAVE_HIGHLIGHTED_KEY = "android:preference_highlighted";
 
+    // Custom Preferences
+    public static final String KEY_MINUS_ONE = "pref_enable_minus_one";
+
     private static final long WAIT_BEFORE_RESTART = 250;
 
     @Override
@@ -88,6 +93,13 @@ public class SettingsActivity extends Activity {
                     .replace(android.R.id.content, getNewFragment())
                     .commit();
         }
+
+        SwitchPreference minusOne = (SwitchPreference) findPreference(KEY_MINUS_ONE);
+        if (!UtilsExtra.hasPackageInstalled(getActivity(),
+                    LunaLauncherCallbacks.SEARCH_PACKAGE)) {
+            getPreferenceScreen().removePreference(minusOne);
+        }
+
     }
 
     protected PreferenceFragment getNewFragment() {
