@@ -21,9 +21,12 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 
+import com.android.launcher3.quickspace.QuickSpaceView;
+
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.LauncherCallbacks;
+import com.android.launcher3.R;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -38,16 +41,23 @@ public class LauncherLettuce extends Launcher {
     public class LauncherLettuceCallbacks implements LauncherCallbacks, OnSharedPreferenceChangeListener {
 
         private final LauncherLettuce mLauncher;
+        private QuickSpaceView mQuickSpace;
 
         public LauncherLettuceCallbacks(LauncherLettuce launcher) {
             mLauncher = launcher;
         }
 
         @Override
-        public void onCreate(Bundle savedInstanceState) { }
+        public void onCreate(Bundle savedInstanceState) {
+            mQuickSpace = mLauncher.findViewById(R.id.reserved_container_workspace);
+        }
 
         @Override
-        public void onResume() { }
+        public void onResume() {
+            if (mQuickSpace != null) {
+                mQuickSpace.onResume();
+            }
+        }
 
         @Override
         public void onStart() { }
