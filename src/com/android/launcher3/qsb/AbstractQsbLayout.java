@@ -57,8 +57,6 @@ public abstract class AbstractQsbLayout extends FrameLayout implements LauncherL
 
     protected abstract int getWidth(int i);
 
-    protected abstract void loadBottomMargin();
-
     public AbstractQsbLayout(Context context) {
         this(context, null);
     }
@@ -103,7 +101,6 @@ public abstract class AbstractQsbLayout extends FrameLayout implements LauncherL
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        loadBottomMargin();
         DeviceProfile deviceProfile = this.mLauncher.getDeviceProfile();
         int bw = getWidth(MeasureSpec.getSize(widthMeasureSpec));
         int calculateCellWidth = DeviceProfile.calculateCellWidth(bw, deviceProfile.inv.numHotseatIcons);

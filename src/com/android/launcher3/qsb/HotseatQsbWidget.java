@@ -72,11 +72,7 @@ public class HotseatQsbWidget extends AbstractQsbLayout {
     }
 
     static int getBottomMargin(Launcher launcher) {
-        Rect insets = launcher.getDragLayer().getInsets();
-        Resources res = launcher.getResources();
-        return res.getDimensionPixelSize(R.dimen.qsb_hotseat_bottom_margin) + (insets.bottom == 0 ?
-                res.getDimensionPixelSize(R.dimen.qsb_hotseat_bottom_margin_hw) :
-                insets.bottom);
+        return launcher.getDeviceProfile().mInsets.bottom + launcher.getResources().getDimensionPixelSize(R.dimen.qsb_hotseat_bottom_margin);
     }
 
     private void setColors() {
@@ -198,13 +194,14 @@ public class HotseatQsbWidget extends AbstractQsbLayout {
         }
     }
 
-    protected int getWidth(final int n) {
-        CellLayout layout = mLauncher.getHotseat().getLayout();
-        return n - layout.getPaddingLeft() - layout.getPaddingRight();
+    protected int getWidth(int width) {
+        View view = mLauncher.mHotseat.mContent;
+        return (width - view.getPaddingLeft()) - view.getPaddingRight();
     }
 
-    protected void loadBottomMargin() {
-        ((MarginLayoutParams) getLayoutParams()).bottomMargin = getBottomMargin(mLauncher);
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        setTranslationY((float) (-getBottomMargin(mLauncher)));
     }
 
     protected void onAttachedToWindow() {

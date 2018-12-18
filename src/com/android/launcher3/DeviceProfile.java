@@ -127,7 +127,7 @@ public class DeviceProfile {
     public int dropTargetBarSizePx;
 
     // Insets
-    private final Rect mInsets = new Rect();
+    public final Rect mInsets = new Rect();
     public final Rect workspacePadding = new Rect();
     private final Rect mHotseatPadding = new Rect();
     private boolean mIsSeascape;
