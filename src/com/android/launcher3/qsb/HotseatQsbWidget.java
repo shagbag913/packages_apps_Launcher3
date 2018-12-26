@@ -134,7 +134,7 @@ public class HotseatQsbWidget extends AbstractQsbLayout {
 
     private void doOnClick() {
         final ConfigBuilder f = new ConfigBuilder(this, false);
-        if (mLauncher.getClient().startSearch(f.build(), f.getExtras())) {
+        if (f != null && mLauncher.getClient() != null && mLauncher.getClient().startSearch(f.build(), f.getExtras())) {
             SharedPreferences devicePrefs = Utilities.getDevicePrefs(getContext());
             devicePrefs.edit().putInt("key_hotseat_qsb_tap_count", devicePrefs.getInt("key_hotseat_qsb_tap_count", 0) + 1).apply();
             playQsbAnimation();
