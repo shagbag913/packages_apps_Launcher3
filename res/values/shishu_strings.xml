@@ -219,4 +219,6 @@
     <string name="icon_pack_summary">Select a custom icon pack</string>
     <string name="icon_pack_none">None</string>
 
+    <!-- Edit icons -->
+    <string name="label_edit">Edit</string>
 </resources>
