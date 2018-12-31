@@ -241,11 +241,14 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
 
 LOCAL_SRC_FILES := \
     $(call all-java-files-under, src) \
+    $(call all-Iaidl-files-under, src) \
     $(call all-java-files-under, quickstep/src) \
     $(call all-java-files-under, searchlauncher/src) \
     $(call all-java-files-under, src_flags) \
     $(call all-proto-files-under, protos) \
     $(call all-proto-files-under, proto_overrides)
+
+LOCAL_AIDL_INCLUDES := $(LOCAL_PATH)/src
 
 LOCAL_RESOURCE_DIR := \
     $(LOCAL_PATH)/quickstep/res \

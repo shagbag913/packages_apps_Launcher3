@@ -98,6 +98,7 @@ import com.android.launcher3.model.ModelWriter;
 import com.android.launcher3.notification.NotificationListener;
 import com.android.launcher3.popup.PopupContainerWithArrow;
 import com.android.launcher3.popup.PopupDataProvider;
+import com.android.launcher3.qsb.QsbAnimationController;
 import com.android.launcher3.quickspace.QuickSpaceView;
 import com.android.launcher3.shortcuts.DeepShortcutManager;
 import com.android.launcher3.states.InternalStateHandler;
@@ -133,6 +134,8 @@ import com.android.launcher3.widget.WidgetHostViewLoader;
 import com.android.launcher3.widget.WidgetListRowEntry;
 import com.android.launcher3.widget.WidgetsFullSheet;
 import com.android.launcher3.widget.custom.CustomWidgetParser;
+
+import com.google.android.libraries.gsa.launcherclient.LauncherClient;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -199,6 +202,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
     private View mLauncherView;
     @Thunk DragLayer mDragLayer;
     private DragController mDragController;
+    public View mDragHandleIndicator;
 
     private AppWidgetManagerCompat mAppWidgetManager;
     private LauncherAppWidgetHost mAppWidgetHost;
@@ -212,7 +216,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
 
     // Main container view for the all apps screen.
     @Thunk AllAppsContainerView mAppsView;
-    AllAppsTransitionController mAllAppsController;
+    public AllAppsTransitionController mAllAppsController;
 
     // UI and state for the overview panel
     private View mOverviewPanel;
@@ -260,6 +264,9 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
     // QuickSpace
     private QuickSpaceView mQuickSpace;
 
+    private LauncherClient mLauncherClient;
+    private QsbAnimationController mQsbController;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (DEBUG_STRICT_MODE) {
@@ -301,6 +308,8 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         mAppWidgetHost.startListening();
 
         mLauncherView = LayoutInflater.from(this).inflate(R.layout.launcher, null);
+
+        mQsbController = new QsbAnimationController(this);
 
         setupViews();
         mPopupDataProvider = new PopupDataProvider(this);
@@ -430,6 +439,14 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         if (mAppWidgetHost != null) {
             mAppWidgetHost.startListening();
         }
+    }
+
+    public LauncherClient getClient() {
+        return mLauncherClient;
+    }
+
+    public QsbAnimationController getQsbController() {
+        return mQsbController;
     }
 
     private LauncherCallbacks mLauncherCallbacks;
@@ -945,6 +962,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         mWorkspace.initParentViews(mDragLayer);
         mOverviewPanel = findViewById(R.id.overview_panel);
         mHotseat = findViewById(R.id.hotseat);
+        mDragHandleIndicator = findViewById(R.id.drag_indicator);
         mHotseatSearchBox = findViewById(R.id.search_container_hotseat);
 
         mLauncherView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -1205,6 +1223,10 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         return mHotseat;
     }
 
+    public View getDragHandleIndicator() {
+        return mDragHandleIndicator;
+    }
+
     public View getHotseatSearchBox() {
         return mHotseatSearchBox;
     }
@@ -1428,8 +1450,22 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
             super.startSearch(initialQuery, selectInitialQuery, appSearchData, true);
         }
 
+        View gIcon = mLauncherView.findViewById(R.id.g_icon);
+        while (gIcon != null && !gIcon.isClickable()) {
+            if (gIcon.getParent() instanceof View) {
+                gIcon = (View)gIcon.getParent();
+            } else {
+                gIcon = null;
+            }
+        }
+        //if (gIcon != null && gIcon.performClick()) {
+        //    return true;
+        //}
+        //return false;
+
         // We need to show the workspace after starting the search
         mStateManager.goToState(NORMAL);
+
     }
 
     public boolean isWorkspaceLocked() {
