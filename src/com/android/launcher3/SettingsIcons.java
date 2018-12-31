@@ -49,6 +49,7 @@ public class SettingsIcons extends SettingsActivity implements PreferenceFragmen
 
     private static final String ICON_BADGING_PREFERENCE_KEY = "pref_icon_badging";
     static final String KEY_PREF_LEGACY_ICON_MASK = "pref_legacy_icon_mask";
+    public final static String ICON_PACK_PREF = "pref_icon_pack";
 
     /** Hidden field Settings.Secure.NOTIFICATION_BADGING */
     public static final String NOTIFICATION_BADGING = "notification_badging";
