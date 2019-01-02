@@ -46,7 +46,7 @@ public class DefaultAppSearchAlgorithm implements SearchAlgorithm {
     public DefaultAppSearchAlgorithm(Context context, List<AppInfo> apps) {
         mContext = context;
         mApps = apps;
-        mBaseFilter = AppFilter.newInstance(context);
+        mBaseFilter = new StringSetAppFilter();
         mResultHandler = new Handler();
     }
 
@@ -90,7 +90,7 @@ public class DefaultAppSearchAlgorithm implements SearchAlgorithm {
         for (UserHandle user : UserManagerCompat.getInstance(context).getUserProfiles()) {
             List<ComponentName> duplicatePreventionCache = new ArrayList();
             for (LauncherActivityInfo info : LauncherAppsCompat.getInstance(context).getActivityList(null, user)) {
-                if (filter.shouldShowApp(info.getComponentName())) {
+                if (filter.shouldShowApp(info.getComponentName().getPackageName(), app.getContext())) {
                     if (!duplicatePreventionCache.contains(info.getComponentName())) {
                         duplicatePreventionCache.add(info.getComponentName());
                         AppInfo appInfo = new AppInfo(context, info, user);
