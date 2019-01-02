@@ -24,4 +24,7 @@ public class UtilsExtra {
 
     // Do nothing for now
 
+    public static <T> T notNullOrDefault(T value, T defValue) {
+        return value == null ? defValue : value;
+    }
 }

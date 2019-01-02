@@ -6,6 +6,13 @@
         android:title="@string/app_overall_title">
 
     <SwitchPreference
+        android:title="@string/app_suggestions_title"
+        android:key="pref_app_suggestions"
+        android:summary="@string/app_suggestions_summary"
+        android:defaultValue="true"
+        android:persistent="true" />
+
+    <SwitchPreference
         android:key="pref_allapps_show_label"
         android:title="@string/app_show_label_title"
         android:summary="@string/allapps_show_label_summary"
