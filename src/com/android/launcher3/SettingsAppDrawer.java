@@ -80,7 +80,7 @@ public class SettingsAppDrawer extends SettingsActivity implements PreferenceFra
     protected void onCreate(final Bundle bundle) {
         super.onCreate(bundle);
         if (bundle == null) {
-            getFragmentManager().beginTransaction().replace(android.R.id.content, new AppDrawerSettingsAppDrawer()).commit();
+            getFragmentManager().beginTransaction().replace(android.R.id.content, new AppDrawerSettingsFragment()).commit();
         }
     }
 
@@ -180,18 +180,6 @@ public class SettingsAppDrawer extends SettingsActivity implements PreferenceFra
         @Override
         public void onDestroy() {
             super.onDestroy();
-        }
-
-        @Override
-        public boolean onPreferenceChange(Preference preference, final Object newValue) {
-            switch (preference.getKey()) {
-            }
-            return false;
-        }
-
-        @Override
-        public boolean onPreferenceClick(Preference preference) {
-            return false;
         }
     }
 
