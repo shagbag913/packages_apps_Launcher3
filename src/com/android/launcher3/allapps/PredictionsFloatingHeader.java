@@ -22,7 +22,7 @@ import android.util.AttributeSet;
 import android.util.FloatProperty;
 import android.view.animation.Interpolator;
 
-import com.android.launcher3.SettingsFragment;
+import com.android.launcher3.SettingsAppDrawer;
 import com.android.launcher3.allapps.PredictionRowView.DividerType;
 import com.android.launcher3.util.ComponentKeyMapper;
 
@@ -68,7 +68,7 @@ public class PredictionsFloatingHeader extends FloatingHeaderView implements Ins
 
     public void setup(AdapterHolder[] adapterHolderArr, boolean tabsHidden) {
         mPredictionRowView.setup(this, Utilities.getPrefs(Launcher.getLauncher(
-            getContext())).getBoolean(SettingsFragment.KEY_APP_SUGGESTIONS, true));
+            getContext())).getBoolean(SettingsAppDrawer.KEY_APP_SUGGESTIONS, true));
         mTabsHidden = tabsHidden;
         updateExpectedHeight();
         super.setup(adapterHolderArr, tabsHidden);
@@ -145,7 +145,7 @@ public class PredictionsFloatingHeader extends FloatingHeaderView implements Ins
 
     public boolean hasVisibleContent() {
         return Utilities.getPrefs(Launcher.getLauncher(
-            getContext())).getBoolean(SettingsFragment.KEY_APP_SUGGESTIONS, true);
+            getContext())).getBoolean(SettingsAppDrawer.KEY_APP_SUGGESTIONS, true);
     }
 
     public void setCollapsed(boolean collapsed) {

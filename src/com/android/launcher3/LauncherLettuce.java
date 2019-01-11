@@ -238,7 +238,7 @@ public class LauncherLettuce extends Launcher {
                     }
                     mLauncherClient.getEventInfo().parse("setClientOptions ", mLauncherClient.mFlags);
                 }
-            } else if (SettingsFragment.KEY_APP_SUGGESTIONS.equals(key)) {
+            } else if (SettingsAppDrawer.KEY_APP_SUGGESTIONS.equals(key)) {
                 updatePredictions(true);
             }
         }
@@ -247,7 +247,7 @@ public class LauncherLettuce extends Launcher {
             if (hasBeenResumed() || force) {
                 List<ComponentKeyMapper> apps = ((PredictionsDispatcher) getUserEventDispatcher()).getPredictedApps();
                 if (apps != null) {
-                    mAppsView.getFloatingHeaderView().setPredictedApps(mPrefs.getBoolean(SettingsFragment.KEY_APP_SUGGESTIONS, true), apps);
+                    mAppsView.getFloatingHeaderView().setPredictedApps(mPrefs.getBoolean(SettingsAppDrawer.KEY_APP_SUGGESTIONS, true), apps);
                 }
             }
         }

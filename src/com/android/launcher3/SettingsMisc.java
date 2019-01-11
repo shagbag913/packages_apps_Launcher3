@@ -38,7 +38,7 @@ public class SettingsMisc extends SettingsActivity implements PreferenceFragment
     protected void onCreate(final Bundle bundle) {
         super.onCreate(bundle);
         if (bundle == null) {
-            getFragmentManager().beginTransaction().replace(android.R.id.content, new MiscSettingsFragment()).commit();
+            getFragmentManager().beginTransaction().replace(android.R.id.content, new MiscSettingsAppDrawer()).commit();
         }
     }
 
@@ -53,7 +53,7 @@ public class SettingsMisc extends SettingsActivity implements PreferenceFragment
         return true;
     }
 
-    public static class MiscSettingsFragment extends PreferenceFragment
+    public static class MiscSettingsAppDrawer extends PreferenceFragment
             implements Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener {
 
         private Context mContext;

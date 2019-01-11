@@ -44,7 +44,7 @@ public class SettingsHomescreen extends SettingsActivity implements PreferenceFr
     protected void onCreate(final Bundle bundle) {
         super.onCreate(bundle);
         if (bundle == null) {
-            getFragmentManager().beginTransaction().replace(android.R.id.content, new HomescreenSettingsFragment()).commit();
+            getFragmentManager().beginTransaction().replace(android.R.id.content, new HomescreenSettingsAppDrawer()).commit();
         }
     }
 
@@ -59,7 +59,7 @@ public class SettingsHomescreen extends SettingsActivity implements PreferenceFr
         return true;
     }
 
-    public static class HomescreenSettingsFragment extends PreferenceFragment
+    public static class HomescreenSettingsAppDrawer extends PreferenceFragment
             implements Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener {
 
         ActionBar actionBar;

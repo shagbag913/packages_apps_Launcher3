@@ -30,7 +30,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewParent;
 
-import com.android.launcher3.SettingsFragment;
+import com.android.launcher3.SettingsAppDrawer;
 import com.android.launcher3.util.ComponentKeyMapper;
 
 import com.android.launcher3.AppFilter;
@@ -204,7 +204,7 @@ public class PredictionsDispatcher extends UserEventDispatcherExtension implemen
     }
 
     private boolean isPredictorEnabled() {
-        return Utilities.getPrefs(mContext).getBoolean(SettingsFragment.KEY_APP_SUGGESTIONS, true);
+        return Utilities.getPrefs(mContext).getBoolean(SettingsAppDrawer.KEY_APP_SUGGESTIONS, true);
     }
   
     @Override

@@ -36,10 +36,10 @@ public class SettingsActivity extends Activity {
     }
 
     protected PreferenceFragment getNewFragment() {
-        return new LauncherSettingsFragment();
+        return new LauncherSettingsAppDrawer();
     }
 
-    public static class LauncherSettingsFragment extends PreferenceFragment {
+    public static class LauncherSettingsAppDrawer extends PreferenceFragment {
 
         @Override
         public void onCreate(Bundle savedInstanceState) {

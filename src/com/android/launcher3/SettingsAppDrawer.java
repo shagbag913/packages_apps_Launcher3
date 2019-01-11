@@ -72,7 +72,7 @@ import java.util.Objects;
 /**
  * Settings activity for Launcher. Currently implements the following setting: Allow rotation
  */
-public class SettingsAppDrawer extends SettingsActivity implements PreferenceFragment.OnPreferenceStartFragmentCallback {
+public class SettingsAppDrawer extends SettingsActivity implements OnPreferenceStartFragmentCallback {
 
     private static final String HIDDEN_APPS = "hidden_app";
     public static final String KEY_APP_SUGGESTIONS = "pref_app_suggestions";
@@ -81,7 +81,7 @@ public class SettingsAppDrawer extends SettingsActivity implements PreferenceFra
     protected void onCreate(final Bundle bundle) {
         super.onCreate(bundle);
         if (bundle == null) {
-            getFragmentManager().beginTransaction().replace(android.R.id.content, new AppDrawerSettingsFragment()).commit();
+            getFragmentManager().beginTransaction().replace(android.R.id.content, new AppDrawerSettingsAppDrawer()).commit();
         }
     }
 
@@ -99,7 +99,7 @@ public class SettingsAppDrawer extends SettingsActivity implements PreferenceFra
     /**
      * This fragment shows the launcher preferences.
      */
-    public static class AppDrawerSettingsFragment extends PreferenceFragment
+    public static class AppDrawerSettingsAppDrawer extends PreferenceFragment
             implements Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener {
 
         ActionBar actionBar;
@@ -146,7 +146,7 @@ public class SettingsAppDrawer extends SettingsActivity implements PreferenceFra
             if (((Boolean) newValue).booleanValue()) {
                 return true;
             }
-            SettingsFragment.SuggestionConfirmationFragment suggestionConfirmationFragment = new SettingsFragment.SuggestionConfirmationFragment();
+            SettingsAppDrawer.SuggestionConfirmationFragment suggestionConfirmationFragment = new SettingsAppDrawer.SuggestionConfirmationFragment();
             suggestionConfirmationFragment.setTargetFragment(this, 0);
             suggestionConfirmationFragment.show(getFragmentManager(), preference.getKey());
             return false;

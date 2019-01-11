@@ -38,7 +38,7 @@ import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 
-import com.android.launcher3.SettingsFragment;
+import com.android.launcher3.SettingsAppDrawer;
 import com.android.launcher3.shortcuts.ShortcutStore;
 import com.android.launcher3.util.ComponentKeyMapper;
 
