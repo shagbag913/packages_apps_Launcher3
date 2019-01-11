@@ -152,7 +152,7 @@ public class SettingsHomescreen extends SettingsActivity implements PreferenceFr
             });
         
             ListPreference searchProvider = (ListPreference) findPreference(Utilities.SEARCH_PROVIDER_KEY);
-            if (BootlegUtils.isPackageInstalled(mContext, LauncherTab.SEARCH_PACKAGE)) {
+            if (BootlegUtils.isPackageInstalled(mContext, LauncherLettuceCallbacks.SEARCH_PACKAGE)) {
                 getPreferenceScreen().removePreference(searchProvider);
             } else {
                 searchProvider.setSummary(searchProvider.getEntry());
