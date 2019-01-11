@@ -99,7 +99,7 @@ public class SettingsAppDrawer extends SettingsActivity implements PreferenceFra
      * This fragment shows the launcher preferences.
      */
     public static class AppDrawerSettingsFragment extends PreferenceFragment
-            implements Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener {
+            implements Preference.OnPreferenceChangeListener {
 
         ActionBar actionBar;
 
