@@ -30,10 +30,10 @@ import com.android.launcher3.InstallShortcutReceiver;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.LauncherAppWidgetInfo;
+import com.android.launcher3.LauncherLettuce.LauncherLettuceCallbacks;
 import com.android.launcher3.LauncherModel.CallbackTask;
 import com.android.launcher3.LauncherModel.Callbacks;
 import com.android.launcher3.LauncherSettings.Favorites;
-import com.android.launcher3.LauncherTab;
 import com.android.launcher3.SessionCommitReceiver;
 import com.android.launcher3.ShortcutInfo;
 import com.android.launcher3.Utilities;
@@ -380,6 +380,6 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
     }
 
     private boolean isSearchPackage(String packageName) {
-        return packageName.equals(LauncherTab.SEARCH_PACKAGE);
+        return packageName.equals(LauncherLettuceCallbacks.SEARCH_PACKAGE);
     }
 }

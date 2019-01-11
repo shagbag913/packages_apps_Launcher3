@@ -24,6 +24,7 @@ import android.content.IntentFilter;
 import android.os.Looper;
 import android.util.Log;
 
+import com.android.launcher3.LauncherLettuce.LauncherLettuceCallbacks;
 import com.android.launcher3.compat.LauncherAppsCompat;
 import com.android.launcher3.compat.PackageInstallerCompat;
 import com.android.launcher3.compat.UserManagerCompat;
@@ -97,7 +98,7 @@ public class LauncherAppState {
         Preconditions.assertUIThread();
         mContext = context;
 
-        setSearchAppAvailable(BootlegUtils.isPackageInstalled(context, LauncherTab.SEARCH_PACKAGE));
+        setSearchAppAvailable(BootlegUtils.isPackageInstalled(context, LauncherLettuceCallbacks.SEARCH_PACKAGE));
 
         mInvariantDeviceProfile = new InvariantDeviceProfile(mContext);
         mIconCache = new IconCache(mContext, mInvariantDeviceProfile);
