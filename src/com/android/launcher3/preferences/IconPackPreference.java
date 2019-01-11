@@ -28,6 +28,7 @@ import java.util.Map;
 
 import com.android.launcher3.R;
 
+
 public class IconPackPreference extends Preference {
 
     private final PackageManager pm;
@@ -70,7 +71,7 @@ public class IconPackPreference extends Preference {
 
     private void setNone() {
         setIcon(getContext().getResources().getDrawable(R.mipmap.ic_launcher_home));
-        setSummary(getContext().getResources().getString(R.string.icon_pack_none));
+        setSummary("None");
     }
 
     @Override
@@ -90,10 +91,8 @@ public class IconPackPreference extends Preference {
                 persistString(item);
                 if (!item.isEmpty()) {
                     IconPackInfo packInfo = packages.get(item);
-                    if (packInfo != null) {
-                        setIcon(packInfo.icon);
-                        setSummary(packInfo.label);
-                    }
+                    setIcon(packInfo.icon);
+                    setSummary(packInfo.label);
                 } else {
                     setNone();
                 }
@@ -149,7 +148,7 @@ public class IconPackPreference extends Preference {
             });
 
             Resources res = context.getResources();
-            String defaultLabel = context.getResources().getString(R.string.icon_pack_none);
+            String defaultLabel = "None";
             Drawable icon = res.getDrawable(R.mipmap.ic_launcher_home);
             mSupportedPackages.add(0, new IconPackInfo(defaultLabel, icon, ""));
             mCurrentIconPack = currentPack;
@@ -185,4 +184,6 @@ public class IconPackPreference extends Preference {
             return convertView;
         }
     }
+
 }
+
