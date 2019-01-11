@@ -60,7 +60,7 @@ public class SettingsIcons extends SettingsActivity implements PreferenceFragmen
     protected void onCreate(final Bundle bundle) {
         super.onCreate(bundle);
         if (bundle == null) {
-            getFragmentManager().beginTransaction().replace(android.R.id.content, new IconsSettingsAppDrawer()).commit();
+            getFragmentManager().beginTransaction().replace(android.R.id.content, new IconsSettingsFragment()).commit();
         }
     }
 
@@ -75,7 +75,7 @@ public class SettingsIcons extends SettingsActivity implements PreferenceFragmen
         return true;
     }
 
-    public static class IconsSettingsAppDrawer extends PreferenceFragment
+    public static class IconsSettingsFragment extends PreferenceFragment
             implements Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener {
 
         ActionBar actionBar;

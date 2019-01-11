@@ -46,7 +46,6 @@ import android.os.SystemClock;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceFragment.OnPreferenceStartFragmentCallback;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.SwitchPreference;
@@ -72,7 +71,7 @@ import java.util.Objects;
 /**
  * Settings activity for Launcher. Currently implements the following setting: Allow rotation
  */
-public class SettingsAppDrawer extends SettingsActivity implements OnPreferenceStartFragmentCallback {
+public class SettingsAppDrawer extends SettingsActivity implements PreferenceFragment.OnPreferenceStartFragmentCallback {
 
     private static final String HIDDEN_APPS = "hidden_app";
     public static final String KEY_APP_SUGGESTIONS = "pref_app_suggestions";
@@ -99,7 +98,7 @@ public class SettingsAppDrawer extends SettingsActivity implements OnPreferenceS
     /**
      * This fragment shows the launcher preferences.
      */
-    public static class AppDrawerSettingsAppDrawer extends PreferenceFragment
+    public static class AppDrawerSettingsFragment extends PreferenceFragment
             implements Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener {
 
         ActionBar actionBar;

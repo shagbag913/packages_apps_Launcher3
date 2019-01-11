@@ -37,6 +37,7 @@ import com.android.launcher3.AppFilter;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.R;
 import com.android.launcher3.SettingsActivity;
+import com.android.launcher3.StringSetAppFilter;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.allapps.AllAppsContainerView;
 import com.android.launcher3.util.ComponentKey;
@@ -100,7 +101,7 @@ public class PredictionsDispatcher extends UserEventDispatcherExtension implemen
 
     public PredictionsDispatcher(Context context) {
         super(context);
-        mAppFilter = AppFilter.newInstance(context);
+        mAppFilter = new StringSetAppFilter();
         mContext = context;
         mPrefs = Utilities.getPrefs(context);
         mPrefs.registerOnSharedPreferenceChangeListener(this);
