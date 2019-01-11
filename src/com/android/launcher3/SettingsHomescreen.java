@@ -32,6 +32,8 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.SwitchPreference;
 import android.view.MenuItem;
 
+import com.android.launcher3.LauncherLettuce.LauncherLettuceCallbacks;
+
 public class SettingsHomescreen extends SettingsActivity implements PreferenceFragment.OnPreferenceStartFragmentCallback {
 
     public static final String KEY_MINUS_ONE = "pref_enable_minus_one";

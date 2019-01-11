@@ -65,7 +65,7 @@ public class LauncherLettuce extends Launcher {
 
             SharedPreferences prefs = Utilities.getPrefs(mLauncher);
             mOverlayCallbacks = new OverlayCallbackImpl(mLauncher);
-            mLauncherClient = new LauncherClient(mLauncher, mOverlayCallbacks, new ClientOptions(((prefs.getBoolean(SettingsFragment.KEY_MINUS_ONE, true) ? 1 : 0) | 2 | 4 | 8)));
+            mLauncherClient = new LauncherClient(mLauncher, mOverlayCallbacks, new ClientOptions(((prefs.getBoolean(SettingsHomescreen.KEY_MINUS_ONE, true) ? 1 : 0) | 2 | 4 | 8)));
             mOverlayCallbacks.setClient(mLauncherClient);
             prefs.registerOnSharedPreferenceChangeListener(this);
         }
@@ -187,8 +187,8 @@ public class LauncherLettuce extends Launcher {
 
         @Override
         public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-            if (SettingsFragment.KEY_MINUS_ONE.equals(key)) {
-                ClientOptions clientOptions = new ClientOptions((prefs.getBoolean(SettingsFragment.KEY_MINUS_ONE, true) ? 1 : 0) | 2 | 4 | 8);
+            if (SettingsHomescreen.KEY_MINUS_ONE.equals(key)) {
+                ClientOptions clientOptions = new ClientOptions((prefs.getBoolean(SettingsHomescreen.KEY_MINUS_ONE, true) ? 1 : 0) | 2 | 4 | 8);
                 if (clientOptions.options != mLauncherClient.mFlags) {
                     mLauncherClient.mFlags = clientOptions.options;
                     if (mLauncherClient.getParams() != null) {
