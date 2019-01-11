@@ -25,6 +25,7 @@ import com.android.launcher3.AppInfo;
 import com.android.launcher3.AppFilter;
 import com.android.launcher3.IconCache;
 import com.android.launcher3.LauncherAppState;
+import com.android.launcher3.StringSetAppFilter;
 import com.android.launcher3.compat.LauncherAppsCompat;
 import com.android.launcher3.compat.UserManagerCompat;
 import com.android.launcher3.util.ComponentKey;
@@ -90,7 +91,7 @@ public class DefaultAppSearchAlgorithm implements SearchAlgorithm {
         for (UserHandle user : UserManagerCompat.getInstance(context).getUserProfiles()) {
             List<ComponentName> duplicatePreventionCache = new ArrayList();
             for (LauncherActivityInfo info : LauncherAppsCompat.getInstance(context).getActivityList(null, user)) {
-                if (filter.shouldShowApp(info.getComponentName().getPackageName(), app.getContext())) {
+                if (filter.shouldShowApp(info.getComponentName().getPackageName(), context)) {
                     if (!duplicatePreventionCache.contains(info.getComponentName())) {
                         duplicatePreventionCache.add(info.getComponentName());
                         AppInfo appInfo = new AppInfo(context, info, user);

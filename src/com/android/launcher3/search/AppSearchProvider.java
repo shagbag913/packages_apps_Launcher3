@@ -39,6 +39,7 @@ import com.android.launcher3.AppInfo;
 import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.LauncherModel;
 import com.android.launcher3.LauncherModel.ModelUpdateTask;
+import com.android.launcher3.StringSetAppFilter;
 import com.android.launcher3.allapps.AppInfoComparator;
 import com.android.launcher3.allapps.search.DefaultAppSearchAlgorithm;
 import com.android.launcher3.allapps.search.DefaultAppSearchAlgorithm.StringMatcher;
