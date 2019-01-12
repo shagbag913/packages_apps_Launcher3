@@ -53,7 +53,8 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_STATIC_ANDROID_LIBRARIES := \
     android-support-v4 \
     android-support-v7-recyclerview \
-    android-support-dynamic-animation
+    android-support-dynamic-animation \
+    androidx.preference_preference
 
 LOCAL_SRC_FILES := \
     $(call all-proto-files-under, protos) \
