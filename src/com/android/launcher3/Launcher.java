@@ -2437,8 +2437,8 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (SettingsIcons.ICON_PACK_PREF.equals(key) || SettingsIcons.KEY_PREF_LEGACY_ICON_MASK.equals(key)) {
-            LauncherAppState.getInstance(getActivity()).getIconCache().clear();
-            Launcher.getLauncher(getActivity()).getModel().forceReload();
+            LauncherAppState.getInstance(this).getIconCache().clear();
+            Launcher.getLauncher(this).getModel().forceReload();
         }
         if (KEY_HOMESCREEN_DT_GESTURES.equals(key)) {
             mWorkspace.setGestures(Integer.valueOf(sharedPreferences.getString("KEY_HOMESCREEN_DT_GESTURES", "0")));
