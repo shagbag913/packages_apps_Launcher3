@@ -64,7 +64,7 @@ public class CustomIconPreference extends Preference {
     }
 
     private void setNone() {
-        setIcon(getContext().getResources().getDrawable(R.mipmap.ic_launcher_home));
+        setIcon(getContext().getResources().getDrawable(R.mipmap.ic_launcher_icon));
         setSummary(getContext().getResources().getString(R.string.icon_pack_none));
     }
 
@@ -143,7 +143,7 @@ public class CustomIconPreference extends Preference {
 
             Resources res = context.getResources();
             String defaultLabel = context.getResources().getString(R.string.icon_pack_none);
-            Drawable icon = res.getDrawable(R.mipmap.ic_launcher_home);
+            Drawable icon = res.getDrawable(R.mipmap.ic_launcher_icon);
             mSupportedPackages.add(0, new IconPackInfo(defaultLabel, icon, ""));
             mCurrentIconPack = currentPack;
         }
