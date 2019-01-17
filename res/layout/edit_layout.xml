@@ -21,7 +21,7 @@
     android:elevation="@dimen/deep_shortcuts_elevation"
     android:orientation="vertical"
     android:paddingTop="28dp"
-    android:theme="?attr/widgetsTheme">
+    android:theme="@style/PopupItem">
 
     <ImageView
         android:id="@+id/icon"
