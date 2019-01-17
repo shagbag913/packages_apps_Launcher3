@@ -53,6 +53,8 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_STATIC_ANDROID_LIBRARIES := \
     android-support-v4 \
     android-support-v7-recyclerview \
+    android-support-v7-preference \
+    android-support-v14-preference \
     android-support-dynamic-animation
 
 LOCAL_SRC_FILES := \
