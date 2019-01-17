@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.UserHandle;
 
-import androidx.preference.PreferenceManager;
+import android.support.v7.preference.PreferenceManager;
 
 import com.android.launcher3.Launcher;
 import com.android.launcher3.LauncherModel;

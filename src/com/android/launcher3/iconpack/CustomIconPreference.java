@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import androidx.preference.Preference;
+import android.support.v7.preference.Preference;
 
 import com.android.launcher3.R;
 

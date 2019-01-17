@@ -3,9 +3,9 @@ package com.android.launcher3;
 import android.content.Context;
 import android.os.Bundle;
 
-import androidx.preference.Preference;
-import androidx.preference.PreferenceFragment;
-import androidx.preference.SwitchPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceFragment;
+import import android.support.v14.preference.SwitchPreference;
 
 import com.android.launcher3.iconpack.AppFilter;
 import com.android.launcher3.util.ComponentKey;
