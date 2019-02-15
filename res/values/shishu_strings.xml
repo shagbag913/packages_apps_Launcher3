@@ -214,4 +214,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <string name="custom_recents_corners_type_default">Default</string>
     <string name="custom_recents_corners_type_card">Rounded Card</string>
     <string name="custom_recents_corners_type_op">OP Style</string>
+
+    <!-- Icon pack -->
+    <string name="pref_icon_pack">Icon pack</string>
 </resources>
