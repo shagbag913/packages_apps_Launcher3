@@ -1321,11 +1321,7 @@ public class Folder extends AbstractFloatingView implements DragSource,
     public void onFocusChange(View v, boolean hasFocus) {
         if (v == mFolderName) {
             if (hasFocus) {
-                if (Utilities.isDesktopLocked(v.getContext())) {
-                    v.clearFocus();
-                } else {
-                    startEditingFolderName();
-                }
+                startEditingFolderName();
             } else {
                 mFolderName.dispatchBackKey();
             }

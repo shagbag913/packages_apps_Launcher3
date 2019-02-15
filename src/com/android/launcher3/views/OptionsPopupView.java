@@ -145,10 +145,8 @@ public class OptionsPopupView extends ArrowPopup
         ArrayList<OptionItem> options = new ArrayList<>();
         options.add(new OptionItem(R.string.wallpaper_button_text, R.drawable.ic_wallpaper,
                 ControlType.WALLPAPER_BUTTON, OptionsPopupView::startWallpaperPicker));
-        if (!Utilities.isDesktopLocked(launcher.getApplicationContext())) {
-            options.add(new OptionItem(R.string.widget_button_text, R.drawable.ic_widget,
-                    ControlType.WIDGETS_BUTTON, OptionsPopupView::onWidgetsClicked));
-        }
+        options.add(new OptionItem(R.string.widget_button_text, R.drawable.ic_widget,
+                ControlType.WIDGETS_BUTTON, OptionsPopupView::onWidgetsClicked));
         options.add(new OptionItem(R.string.settings_title, R.drawable.ic_setting,
                 ControlType.SETTINGS_BUTTON, OptionsPopupView::startSettings));
 

@@ -44,7 +44,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <string name="iconPackPackageDefault" translatable="false">""</string>
     <string name="icon_pack">Icon pack</string>
     <string name="icon_pack_summary">Change the look of your app icons</string>
-    <string name="icon_pack_none">Default</string>
+    <string name="icon_pack_none">None</string>
 
     <!-- Icon shape -->
     <string name="icon_shape_override_label_custom">Icon shape</string>
@@ -98,8 +98,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <string name="app_show_label_title">App labels</string>
     <string name="desktop_show_label_summary">Show the labels of apps on the home screen</string>
     <string name="allapps_show_label_summary">Show the labels of apps in the app drawer</string>
-    <string name="allapps_long_labels_title">Long app labels</string>
-    <string name="allapps_long_labels_summary">Allows apps to display labels using two lines</string>
 
     <!-- Show quickspace -->
     <string name="show_quickspace_title">Show At A Glance</string>
@@ -216,9 +214,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <string name="custom_recents_corners_type_default">Default</string>
     <string name="custom_recents_corners_type_card">Rounded Card</string>
     <string name="custom_recents_corners_type_op">OP Style</string>
-
-    <!-- Lock desktop -->
-    <string name="lock_desktop_title">Lock desktop</string>
-    <string name="lock_desktop_summary">Prevent the homescreen from being modified</string>
 
 </resources>
